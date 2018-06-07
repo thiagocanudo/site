@@ -1,0 +1,24 @@
+//frameworks
+@import 'html/bootstrap.min';
+
+//misc settings
+@import 'config/_settings';
+@import 'config/_mixins';
+
+//fonts
+@import 'config/_fonts';
+
+
+//buttons
+@import 'config/_buttons';
+
+//plugins
+@import 'plugins/_plugins';
+
+//widgets
+@import 'layout/_widgets';
+
+//global things
+@import 'layout/_main';
+
+//pages

@@ -1,0 +1,117 @@
+html {
+	font-size: 62.5%;
+} 
+
+body{
+	font-family: 'Open Sans', serif;
+	font-weight: 400;
+	font-size: 1.3rem;
+	color: $colorGray;
+	line-height: 1.42857143;
+	background: $colorGrayExtraLight;
+}
+
+.side-menu{
+	border-left: 1px solid $colorGrayLight;
+	background: $colorWhite;
+	dl{
+		dt{
+			line-height: 30px;
+			font-family: 'Open Sans Condensed';
+			font-size: 1.5rem;
+			font-weight: 600;
+			color: $colorGreen;
+			border-bottom: 1px dotted $colorGreenExtraLight;
+		}
+		dd{
+			line-height: 22px;
+			border-bottom: 1px dotted $colorGreenExtraLight;
+			a{
+				color: $colorGreen;
+			}
+		}
+		dl{
+			display: none;
+		}
+	}
+}
+
+main{
+	background: $colorWhite;
+}
+
+.principal{
+	background: $colorGrayMediumLight;
+	.box-resumo{
+		border: 1px solid $colorGrayMedium;
+		border-radius: 4px;
+		background: $colorWhite;
+		.simbolo{
+			padding-left: 15px;
+    		padding-right: 15px;
+		}
+		h1{
+			font-family: 'Open Sans condensed', sans-serif;
+			font-weight: 700;
+			font-size: 3rem;
+			color: $colorGrayDark;
+			text-transform: uppercase;
+		}
+		h2{
+			margin-bottom: 30px;
+			padding: 14px 50px;
+			font-family: Georgia, Arial, helvetica, Sans-serif;
+			font-size: 2rem;
+			font-style: italic;
+			color: #004941;
+			border-top: 1px solid darken($colorGrayLight, 10);
+			border-bottom: 1px solid darken($colorGrayLight, 10);
+			background: url(http://www.organizadasbrasil.com/imagens/perfil/sprite-perfil.png) 12px 12px no-repeat; 
+		}
+		h3{
+			font-family: 'Open Sans Condensed';
+			font-size: 1.85rem;
+			font-weight: 600;
+		}
+		.dados{
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.simbolo{
+	padding-left: 0px;
+	padding-right: 10px;
+	a{
+		img{
+		&:hover{
+			opacity: .75;
+				@include transition;
+			}
+		}
+	}
+}
+.infos{
+	div{
+		div{
+			padding-right: 0;
+			strong{
+				font-family: 'Open Sans Condensed';
+				font-size: 1.4rem;
+			}
+			&.odd{
+				background: #F2F2F2;
+			}
+		}
+		.lema{
+			Font-family: Georgia;
+		}
+		a{
+			color: $colorGreen;
+			text-decoration: underline;
+			&:hover{
+				text-decoration: none;
+			}
+		}		
+	}
+}

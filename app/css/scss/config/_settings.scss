@@ -1,0 +1,123 @@
+//********************
+// colors
+//********************
+$colorBlack: #000000;
+$colorWhite: #FFFFFF;
+$colorGreen: #0C8077;
+$colorGreenExtraLight: #DCE9E8;
+$colorGray: #606060;
+$colorGrayMedium: #ccc;
+$colorGrayDark: #474747;
+$colorGrayLight: #eee;
+$colorGrayMediumLight: #F5F4F5;
+$colorGrayExtraLight: #F9F9F9;
+
+//********************
+// media-queries
+//********************
+$mobi-xs: "only screen and (max-width: 575px)";
+$mobi: "only screen and (min-width: 576px) and (max-width: 767px)";
+$tablet: "only screen and (min-width: 768px) and (max-width: 991px)";
+$notebook: "only screen and (min-width: 992px) and (max-width: 1199px)";
+$desktop: "only screen and (min-width: 1200px)";
+
+$mobi-xs-down: "only screen and (max-width: 575px)";
+$mobi-down: "only screen and (max-width: 767px)";
+$tablet-down: "only screen and (max-width: 991px)";
+$notebook-down: "only screen and (max-width: 1199px)";
+$desktop-down: "only screen and (min-width: 1200px)";
+
+$mobi-xs-up: "only screen and (min-width: 575px)";
+$mobi-up: "only screen and (min-width: 767px)";
+$tablet-up: "only screen and (min-width: 992px)";
+$notebook-up: "only screen and (min-width: 1199px)";
+
+//********************
+// resets
+//********************
+.container{
+	width: 100%;
+	max-width: 1300px !important;
+}
+
+ul{
+	list-style: none;
+}
+
+//********************
+// complements
+//********************
+.no-border{
+	border: 0 !important;
+}
+.no-border-radius{
+	border-radius: 0 !important;
+}
+.no-padding-right{
+	padding-right: 0 !important;
+}
+.no-padding-left{
+	padding-left: 0 !important;
+}
+.no-padding{
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+.truncate-text{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.hidden-xs-down{
+	@media #{$mobi-xs-down}{
+		display: none !important;
+	}
+}
+
+.hidden-sm-down{
+	@media #{$mobi-down}{
+		display: none !important;
+	}
+}
+
+.hidden-md-down{
+	@media #{$tablet-down}{
+		display: none !important;
+	}
+}
+
+.hidden-sm-up{
+	@media #{$tablet-up}{
+		display: none !important;
+	}
+}
+
+.hidden-md-up{
+	@media #{$tablet-up}{
+		display: none !important;
+	}
+}
+
+.hidden-lg-up{
+	@media #{$notebook-up}{
+		display: none !important;
+	}
+}
+
+.hidden-lg-down{
+	@media #{$notebook-down}{
+		display: none !important;
+	}
+}
+
+.overflow{
+	overflow: hidden;
+}
+
+//********************
+// titulos
+//********************
+h3{
+
+}
