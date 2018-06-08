@@ -125,3 +125,25 @@ main{
 .comentarios{
 	background: #F2F2F2;
 }
+
+
+/*
+	BIGSLIDE
+*/
+#menu{
+	background: $colorGrayDark;
+    z-index: 10;
+    @media #{$mobi-up}{
+    	left: -15.625em !important;
+    }
+}
+
+.panel {
+    position: fixed;
+    left: -15.625em; /*left or right and the width of your navigation panel*/
+    width: 15.625em; /*should match the above value*/
+}
+
+.wrap {
+    position: relative;
+}
