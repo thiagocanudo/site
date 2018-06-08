@@ -54,8 +54,42 @@
 				  <a class="pt-3 pr-4 pb-3 pl-4" href="#">Equipe</a>
 				  <a class="pt-3 pr-4 pb-3 pl-4" href="#">Enquetes OBR</a>
 				  <a class="pt-3 pr-4 pb-3 pl-4" href="#">Contatos</a>
+				  <a href="#menu" class="menu-link"><img class="fluid-img mt-3" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDQ1OSA0NTkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQ1OSA0NTk7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8ZyBpZD0ibWVudSI+CgkJPHBhdGggZD0iTTAsMzgyLjVoNDU5di01MUgwVjM4Mi41eiBNMCwyNTVoNDU5di01MUgwVjI1NXogTTAsNzYuNXY1MWg0NTl2LTUxSDB6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" /></a>				  
 				</nav>				
 			</div>
+
+<nav id="menu" class="panel" role="navigation">
+  <div class="container">
+    <div class="col-12 mb-4">
+      <img src="images/svg/logo.svg" class="img-fluid mt-4 mb-2">
+    </div>
+    <ul>
+      <li class="col-12 pt-2 pb-2 menu-line">
+        <div class="row">
+          <div class="col-4">
+            <a href=""><img src="images/svg/notification.svg"></a>
+          </div>
+          <div class="col-3 pr-0 pl-0">
+            A+ A-
+          </div>
+          <div class="col-5">
+            <button type="button" class="btn btn-real-primary btn-block btn-border mt-2">Sair</button>
+          </div>
+        </div>
+      </li>
+      <li class="col-12 pt-2 pb-2 menu-line">
+        <div class="row">
+          <div class="col-4">
+            <a href=""><img src="http://placehold.it/35x35" class="rounded-circle"></a>
+          </div>
+          <div class="col-8 pr-0 pl-0 text-truncate">
+            <a href="">Alberto Guimarães</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
 
           </div>
         </div>
@@ -275,5 +309,11 @@
       </div>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://ascott1.github.io/bigSlide.js/js/bigSlide.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.menu-link').bigSlide();
+      });
+    </script>    
   </body>
 </html>
