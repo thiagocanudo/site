@@ -15,8 +15,21 @@ p{
 	line-height: 2.25rem;
 }
 
+.header{
+	background: #fff url(http://www.organizadasbrasil.com/imagens/topo-2011.jpg) center bottom no-repeat;
+}
+
+.header-menu{
+	background: #fff url(http://www.organizadasbrasil.com/imagens/bg-menu.png) center bottom repeat-x;
+	a{
+		font-family: 'Open Sans Condensed';
+		font-size: 1.5rem;
+		font-weight: bold;
+		color: $colorWhite;
+	}
+}
+
 .side-menu{
-	border-left: 1px solid $colorGrayLight;
 	background: $colorWhite;
 	dl{
 		dt{
@@ -41,6 +54,16 @@ p{
 }
 
 main{
+	.container{
+		border: 1px solid $colorGrayLight;
+		background: $colorWhite;
+	}
+}
+
+.parceiros{
+	border: 1px solid $colorGrayLight;
+	border-top-width: 2px;
+	background: $colorWhite;
 }
 
 .principal{
@@ -126,6 +149,9 @@ main{
 	background: #F2F2F2;
 }
 
+footer{
+	background: $colorGrayLight;
+}
 
 /*
 	BIGSLIDE
