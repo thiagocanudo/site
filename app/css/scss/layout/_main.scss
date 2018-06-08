@@ -11,6 +11,10 @@ body{
 	background: $colorGrayExtraLight;
 }
 
+p{
+	line-height: 2.25rem;
+}
+
 .side-menu{
 	border-left: 1px solid $colorGrayLight;
 	background: $colorWhite;
@@ -37,7 +41,6 @@ body{
 }
 
 main{
-	background: $colorWhite;
 }
 
 .principal{
@@ -74,6 +77,7 @@ main{
 			font-weight: 600;
 		}
 		.dados{
+		    line-height: 2.3rem;
 			margin-bottom: 30px;
 		}
 	}
@@ -94,7 +98,7 @@ main{
 .infos{
 	div{
 		div{
-			padding-right: 0;
+			// padding-right: 0;
 			strong{
 				font-family: 'Open Sans Condensed';
 				font-size: 1.4rem;
@@ -114,4 +118,10 @@ main{
 			}
 		}		
 	}
+}
+
+.texto-historia,
+.fotos,
+.comentarios{
+	background: #F2F2F2;
 }

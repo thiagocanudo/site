@@ -37,7 +37,9 @@ $notebook-up: "only screen and (min-width: 1199px)";
 //********************
 .container{
 	width: 100%;
-	max-width: 1300px !important;
+	max-width: 1270px !important;
+	padding: 0;
+	background: $colorWhite;
 }
 
 ul{
