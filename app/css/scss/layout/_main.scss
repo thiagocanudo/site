@@ -29,7 +29,8 @@ p{
 	}
 }
 
-.side-menu{
+.side-menu,
+.menu-responsivo{
 	background: $colorWhite;
 	dl{
 		dt{
@@ -62,8 +63,19 @@ p{
 		dl{
 			display: none;
 		}
-	}
+	}	
 }
+
+ .menu-responsivo{
+	-webkit-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.20);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.20);
+    .scroll-menu{
+    	overflow: auto;
+    	height: 100vh;
+    }
+}
+
+
 
 main{
 	.container{
@@ -201,25 +213,37 @@ main{
 				color: $colorGreenDark;
 				text-decoration: none;
 			}
-		}		
+		}
+		a.btn{
+		    font-size: 1.25rem;
+		}	
 	}
 }
 
 .texto-historia,
 .fotos,
 .comentarios{
-	background: #F2F2F2;
+	background: $colorGrayExtraLight;
 }
 
 footer{
 	background: $colorGrayLight;
+	.copyright{
+		color: $colorGreenDark;
+	}
+	.users-online{
+		color: $colorGreenDark;
+	}
+	input[type=text]{
+		font-size: 1.5rem;
+	}
 }
 
 /*
 	BIGSLIDE
 */
 #menu{
-	background: $colorGrayDark;
+	background: $colorWhite;
     z-index: 10;
     @media #{$mobi-up}{
     	left: -15.625em !important;

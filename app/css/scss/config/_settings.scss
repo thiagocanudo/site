@@ -51,6 +51,21 @@ ul{
 //********************
 // complements
 //********************
+.btn-obr{
+    font-family: Open Sans Condensed;
+    font-size: 1.75rem;
+    font-weight: 600;
+	color: $colorWhite;
+	background: $colorGreen;
+	&:hover{
+		color: $colorWhite;
+		background: $colorGreenDark;
+	}
+}
+
+//********************
+// complements
+//********************
 .no-border{
 	border: 0 !important;
 }
