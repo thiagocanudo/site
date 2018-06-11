@@ -1,12 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,400,500,700|Open+Sans:300,400');
-
 @font-face {
   font-family: 'obr';
-  src:  url('../fonts/obr.eot?5ru8mz');
-  src:  url('../fonts/obr.eot?5ru8mz#iefix') format('embedded-opentype'),
-    url('../fonts/obr.ttf?5ru8mz') format('truetype'),
-    url('../fonts/obr.woff?5ru8mz') format('woff'),
-    url('../fonts/obr.svg?5ru8mz#obr') format('svg');
+  src:  url('fonts/obr.eot?5ru8mz');
+  src:  url('fonts/obr.eot?5ru8mz#iefix') format('embedded-opentype'),
+    url('fonts/obr.ttf?5ru8mz') format('truetype'),
+    url('fonts/obr.woff?5ru8mz') format('woff'),
+    url('fonts/obr.svg?5ru8mz#obr') format('svg');
   font-weight: normal;
   font-style: normal;
 }

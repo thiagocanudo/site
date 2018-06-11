@@ -3,7 +3,10 @@
 //********************
 $colorBlack: #000000;
 $colorWhite: #FFFFFF;
+$colorOrange: #ED8F03;
+$colorYellow: #CC9900;
 $colorGreen: #0C8077;
+$colorGreenDark: #004940;
 $colorGreenExtraLight: #DCE9E8;
 $colorGray: #606060;
 $colorGrayMedium: #ccc;
@@ -37,7 +40,7 @@ $notebook-up: "only screen and (min-width: 1199px)";
 //********************
 .container{
 	width: 100%;
-	max-width: 1270px !important;
+	max-width: 1240px !important;
 	padding: 0;
 }
 

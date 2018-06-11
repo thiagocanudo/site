@@ -39,10 +39,22 @@ p{
 			font-weight: 600;
 			color: $colorGreen;
 			border-bottom: 1px dotted $colorGreenExtraLight;
+			i{
+				padding-right: 5px;
+				font-size: .75rem;
+				font-weight: 800;
+				color: $colorGreenDark;
+			}			
 		}
 		dd{
 			line-height: 22px;
 			border-bottom: 1px dotted $colorGreenExtraLight;
+			i{
+				padding-right: 3px;
+				font-size: .65rem;
+				font-weight: 800;
+				color: $colorYellow;
+			}
 			a{
 				color: $colorGreen;
 			}
@@ -57,6 +69,11 @@ main{
 	.container{
 		border: 1px solid $colorGrayLight;
 		background: $colorWhite;
+		.torcida{
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			background: $colorWhite;
+		}
 	}
 }
 
@@ -69,9 +86,28 @@ main{
 .principal{
 	background: $colorGrayMediumLight;
 	.box-resumo{
+		position: relative;
 		border: 1px solid $colorGrayMedium;
 		border-radius: 4px;
 		background: $colorWhite;
+		.estado{
+			position: absolute;
+			top: 15px;
+			right: 15px;
+			a{
+				display: block;
+				color: $colorGreen;
+				text-decoration: underline;
+				img{
+
+				}
+				span{
+					display: block;
+					font-family: 'Open Sans condensed', sans-serif;
+					font-weight: 600;
+				}				
+			}
+		}
 		.simbolo{
 			padding-left: 15px;
     		padding-right: 15px;
@@ -84,15 +120,18 @@ main{
 			text-transform: uppercase;
 		}
 		h2{
-			margin-bottom: 30px;
-			padding: 14px 50px;
+			padding: 0 10px;
 			font-family: Georgia, Arial, helvetica, Sans-serif;
 			font-size: 2rem;
 			font-style: italic;
-			color: #004941;
-			border-top: 1px solid darken($colorGrayLight, 10);
-			border-bottom: 1px solid darken($colorGrayLight, 10);
-			background: url(http://www.organizadasbrasil.com/imagens/perfil/sprite-perfil.png) 12px 12px no-repeat; 
+			color: $colorGreenDark;
+			i{
+				position: relative;
+				top: 5px;
+				padding-right: 5px;
+				font-size: 3rem;
+				color: darken($colorGrayLight, 5);
+			}
 		}
 		h3{
 			font-family: 'Open Sans Condensed';
@@ -101,11 +140,28 @@ main{
 		}
 		.dados{
 		    line-height: 2.3rem;
+		    margin-top: 20px;
 			margin-bottom: 30px;
+		}
+		.time{
+			span{
+				color: $colorOrange;
+			}
 		}
 	}
 }
-
+.side-banner{
+	.box-banner{
+		overflow: hidden;
+		border: 1px solid $colorGrayLight;
+		background: $colorGrayExtraLight;
+		> div{
+			width: 160px;
+			hwight: 600px;
+			margin: 10px auto;
+		}
+	}
+}
 .simbolo{
 	padding-left: 0px;
 	padding-right: 10px;
@@ -116,6 +172,11 @@ main{
 				@include transition;
 			}
 		}
+	}
+	.compartilhe{
+		font-family: 'Open Sans Condensed';
+		font-size: 1.3rem;
+		font-weight: 600;
 	}
 }
 .infos{
@@ -137,6 +198,7 @@ main{
 			color: $colorGreen;
 			text-decoration: underline;
 			&:hover{
+				color: $colorGreenDark;
 				text-decoration: none;
 			}
 		}		
