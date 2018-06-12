@@ -336,24 +336,24 @@
 										<div class="col-12 p-1 fotos">
 											<div class="col-12">
 												<div class="swiper-container">
-													<div class="swiper-wrapper">
+													<div class="swiper-wrapper gallery">
 														<div class="swiper-slide">
-															<img src="http://www.organizadasbrasil.com/galerias/bandeiroes/t_obr-bandeirao355.jpg">
+															<a href="http://www.organizadasbrasil.com/galerias/bandeiroes/t_obr-bandeirao355.jpg"><img src="http://www.organizadasbrasil.com/galerias/bandeiroes/t_obr-bandeirao355.jpg"></a>
 														</div>
 														<div class="swiper-slide">
-															<img src="http://www.organizadasbrasil.com/galerias/faixas/t_obr_faixa15.jpg">
+															<a href="http://www.organizadasbrasil.com/galerias/bandeiroes/t_obr-bandeirao355.jpg"><img src="http://www.organizadasbrasil.com/galerias/faixas/t_obr_faixa15.jpg"></a>
 														</div>
 														<div class="swiper-slide">
-															<img src="https://lh5.googleusercontent.com/-_XqKN1-cBus/T810PPoXcXI/AAAAAAAAEsU/a8ST_sVmi9w/s128/obr_sav">
+															<a href="http://www.organizadasbrasil.com/galerias/bandeiroes/t_obr-bandeirao355.jpg"><img src="https://lh5.googleusercontent.com/-_XqKN1-cBus/T810PPoXcXI/AAAAAAAAEsU/a8ST_sVmi9w/s128/obr_sav"></a>
 														</div>
 														<div class="swiper-slide">
-															<img src="https://lh6.googleusercontent.com/-Al8oEZ8krIQ/T810Payn1II/AAAAAAAAEsY/wYw1XPhUeS0/s128/obr_sav">
+															<a href="http://www.organizadasbrasil.com/galerias/bandeiroes/t_obr-bandeirao355.jpg"><img src="https://lh6.googleusercontent.com/-Al8oEZ8krIQ/T810Payn1II/AAAAAAAAEsY/wYw1XPhUeS0/s128/obr_sav"></a>
 														</div>
 														<div class="swiper-slide">
-															<img src="http://www.organizadasbrasil.com/galerias/bandeiras/t_obr_bandeira1083.jpg">
+															<a href="http://www.organizadasbrasil.com/galerias/bandeiroes/t_obr-bandeirao355.jpg"><img src="http://www.organizadasbrasil.com/galerias/bandeiras/t_obr_bandeira1083.jpg"></a>
 														</div>
 														<div class="swiper-slide">
-															<img src="https://lh6.googleusercontent.com/-G3hbtIkuzoQ/UWJELpChsVI/AAAAAAAAFgQ/m1b1jDjFD1o/s128/obr_sav">
+															<a href="http://www.organizadasbrasil.com/galerias/bandeiroes/t_obr-bandeirao355.jpg"><img src="https://lh6.googleusercontent.com/-G3hbtIkuzoQ/UWJELpChsVI/AAAAAAAAFgQ/m1b1jDjFD1o/s128/obr_sav"></a>
 														</div>
 													</div>
 													<div class="swiper-pagination"></div>
@@ -472,6 +472,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://ascott1.github.io/bigSlide.js/js/bigSlide.js"></script>
     <script src="http://idangero.us/swiper/dist/js/swiper.min.js"></script>
+    <script src="http://www.organizadasbrasil.com/cdn/simple-lightbox.js"></script>
     <script>
       $(document).ready(function() {
         $('.menu-link').bigSlide();
@@ -506,6 +507,13 @@
 		    }
 		  }
 		});   
-    </script>    
+    </script>
+
+<script>
+	$(function(){
+		var $gallery = $('.gallery a').simpleLightbox();
+	});
+</script>
+
   </body>
 </html>

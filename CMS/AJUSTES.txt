@@ -1,0 +1,8 @@
+Retirar estilo inline
+<a href="<?php echo $url_obr ?>" class="btn btn-obr pl-4 pr-4" style="font-size: 1.25rem;">Ver Perfil</a>
+
+Ajustar Swipper
+
+Otimizar CSS
+
+Imports JS

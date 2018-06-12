@@ -217,9 +217,9 @@ if($_GET){
 				$num_rows = mysql_num_rows($resultado);
 		?>
 		<?php if($num_rows <= 5) { ?>
-		<ul class="swiper-wrapper p-0">
+		<ul class="swiper-wrapper p-0 gallery">
 			<?php }else{?>
-			<ul class="swiper-wrapper p-0">
+			<ul class="swiper-wrapper p-0 gallery">
 				<?php } ?>
 				<?php
 					while($num_rows = mysql_fetch_array($resultado)){
@@ -318,6 +318,7 @@ if($_GET){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://ascott1.github.io/bigSlide.js/js/bigSlide.js"></script>
     <script src="http://idangero.us/swiper/dist/js/swiper.min.js"></script>
+    <script src="http://www.organizadasbrasil.com/cdn/simple-lightbox.js"></script>
 
     <script>
       $(document).ready(function() {
@@ -387,6 +388,12 @@ if($_GET){
 	  }
 	});    
     </script>
+
+	<script>
+		$(function(){
+			var $gallery = $('.gallery a').simpleLightbox();
+		});
+	</script>    
 	<!-- Go to www.addthis.com/dashboard to customize your tools -->
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f8c40e84c4e93bc"></script>
   </body>

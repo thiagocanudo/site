@@ -109,7 +109,7 @@ if($_GET){
 
 	          	<div class="principal col-sm-12 mt-4 mb-2 pt-4 pb-4">
 	          		<div class="box-resumo col-md-12 pt-5 pb-4">
-	          			<div class="estado text-center">
+	          			<div class="estado text-center sl-wrapper">
 	          				<?php $url_estado = friendlyUrlEstados($estado_nome);?>
 							<?php $url_obr = friendlyUrl($torcida_nome).$torcida_id.".html"; ?>
 	          				<a title="<?php echo $estado_nome ?>" href="<?php echo strtolower($url_estado); ?>">
@@ -172,29 +172,25 @@ if($_GET){
 			          			<div class="row">
 									<div class="col-12 mt-4">
 										<hr>
-										<h3>História da Torcida <span class="d-none"> da<?php echo $torcida_nome ?></span></h3>
+										<h3>História da Torcida <span class="d-none"> da <?php echo $torcida_nome ?></span></h3>
 
 										<div class="col-12 pt-4 pb-3 texto-historia">
-
-											<?php
-												if(strlen($historia)>455){
-													$resumo = substr("$historia",0,445);
-													$resumo = rtrim($resumo);
-											?>
-
-											<pre id="historia-resumo"><?php echo $resumo. "... "?></pre>
-			
-											<pre id="historia-completa"><?php echo $historia?></pre>
-
-											<div class="col-12 mt-3 text-right">
-												<a title="[+] Mostrar história completa" href="#" id="mostrar-completa">[+] Mostrar história completa</a>
-												<a title="Fechar" href="#" id="mostrar-resumo">Fechar</a>
-											</div>
-
+											<?php if($historia){ ?>
+												<?php if(strlen($historia)>310){
+														$resumo = substr("$historia",0,300);
+														$resumo = rtrim($resumo);
+												?>
+												<pre id="historia-resumo"><?php echo $resumo. "... "?></pre>
+												<pre id="historia-completa"><?php echo $historia?></pre>
+												<div class="col-12 mt-3 text-right">
+													<a title="[+] Mostrar história completa" href="#" id="mostrar-completa">[+] Mostrar história completa</a>
+													<a title="Fechar" href="#" id="mostrar-resumo">Fechar</a>
+												</div>
+												<?php }else{ ?>
+													<pre><?php echo $historia?></pre>
+												<?php }	 ?>
 											<?php }else{ ?>
-											<pre>
-												<?php echo $historia?>
-											</pre>
+												<pre>Não disponível</pre>
 											<?php }	 ?>
 										</div>
 
@@ -206,55 +202,49 @@ if($_GET){
 										<hr>
 			          					<h3>Fotos da Torcida <span class="d-none"> da<?php echo $torcida_nome ?></span></h3>
 										<div class="col-12 p-4 fotos">
+											<div class="col-12">
+												<div class="swiper-container">
+													<?php
+														$resultado = mysql_query("SELECT fot.id as fotos_id, fot.url as fotos_url FROM fotos fot INNER JOIN torcidas tor ON tor.id = fot.torcida_id WHERE tor.id =" .$_GET['id']." LIMIT 50;");
+															$num_rows = mysql_num_rows($resultado);
+													?>
+													<?php if($num_rows <= 5) { ?>
+													<ul class="swiper-wrapper p-0 gallery">
+														<?php }else{?>
+														<ul class="swiper-wrapper p-0 gallery">
+															<?php } ?>
+															<?php
+																while($num_rows = mysql_fetch_array($resultado)){
+															?>
+															<li class="swiper-slide">
+																<?php
+																	$caminho = substr($num_rows['fotos_url'], 0, 10);
+																	if($caminho == "https://lh"){
+																		$valores = array("s400", "s450", "s500", "s550", "s600", "s650");
+																		$thumb_pic = str_replace($valores, "s128" , $num_rows['fotos_url']); ?>
+																<?php { ?>
+																	<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>.jpg" title="Foto <?php echo $torcida_nome?>"><img alt="Foto <?php echo $torcida_nome?>" src="<?php echo $thumb_pic?>" /></a>
+																<?php }} ?>
+																
+
+																<?php
+																	$caminho = substr($num_rows['fotos_url'], 0, 33);
+																	if($caminho == "http://www.organizadasbrasil.com/"){
+																	$thumb_obr = str_replace("obr", "t_obr", $num_rows['fotos_url'])?>
+																<?php { ?>
+																	<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>" title="Foto <?php echo $torcida_nome?>"><img alt="Foto <?php echo $torcida_nome?>" src="<?php echo $thumb_obr?>" /></a>
+																<?php }} ?>
 
 
-
-<div class="col-12">
-	<div class="swiper-container">
-
-		<?php
-			$resultado = mysql_query("SELECT fot.id as fotos_id, fot.url as fotos_url FROM fotos fot INNER JOIN torcidas tor ON tor.id = fot.torcida_id WHERE tor.id =" .$_GET['id']." LIMIT 50;");
-				$num_rows = mysql_num_rows($resultado);
-		?>
-		<?php if($num_rows <= 5) { ?>
-		<ul class="swiper-wrapper p-0">
-			<?php }else{?>
-			<ul class="swiper-wrapper p-0">
-				<?php } ?>
-				<?php
-					while($num_rows = mysql_fetch_array($resultado)){
-				?>
-				<li class="swiper-slide">
-					<?php
-						$caminho = substr($num_rows['fotos_url'], 0, 10);
-						if($caminho == "https://lh"){
-							$valores = array("s400", "s450", "s500", "s550", "s600", "s650");
-					$thumb_pic = str_replace($valores, "s128" , $num_rows['fotos_url']); ?>
-					
-					<?php { ?>
-					<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>.jpg" class="group1" title=""><img alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_pic?>" /></a>
-					<?php } ?>
-					<?php } ?>
-					<?php
-					$caminho = substr($num_rows['fotos_url'], 0, 33);
-					if($caminho == "http://www.organizadasbrasil.com/"){
-					$thumb_obr = str_replace("obr", "t_obr", $num_rows['fotos_url'])?>
-					<?php { ?>
-					<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>" class="group1" title=""><img alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_obr?>" /></a>
-					<?php } ?>
-					<?php } ?>
-					<?php } ?>
-				</li>
-				<?php if(mysql_num_rows($resultado) == 0){ ?>
-			<pre>Em breve...</pre>
-			<?php } ?>
-		</ul>
-		<div class="swiper-pagination"></div>
-	</div>								
-</div>								
-
-
-											
+															</li>
+														</ul>
+													<div class="swiper-pagination"></div>
+																<?php } ?>
+														<?php if(mysql_num_rows($resultado) == 0){ ?>
+															<span class="align-self-center">Em breve...</span>
+														<?php } ?>
+												</div>								
+											</div>								
 			          					</div>
 		          					</div>
 			          			</div>
@@ -318,6 +308,7 @@ if($_GET){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="http://ascott1.github.io/bigSlide.js/js/bigSlide.js"></script>
     <script src="http://idangero.us/swiper/dist/js/swiper.min.js"></script>
+    <script src="http://www.organizadasbrasil.com/cdn/simple-lightbox.js"></script>
 
     <script>
       $(document).ready(function() {
@@ -387,6 +378,12 @@ if($_GET){
 	  }
 	});    
     </script>
+
+	<script>
+		$(function(){
+			var $gallery = $('.gallery a').simpleLightbox();
+		});
+	</script>    
 	<!-- Go to www.addthis.com/dashboard to customize your tools -->
 	<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4f8c40e84c4e93bc"></script>
   </body>

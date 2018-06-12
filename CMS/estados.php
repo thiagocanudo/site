@@ -134,7 +134,7 @@
 												<div class="fb-like" data-href="http://www.organizadasbrasil.com<?php echo $url_obr ?>" data-send="false" data-layout="button_count" data-width="115" data-show-faces="false"></div>
 											</div>
 											<div class="col-6 mt-2 no-padding text-right">
-												<a href="<?php echo $url_obr ?>" class="btn btn-obr pl-4 pr-4">Ver Perfil</a>
+												<a href="<?php echo $url_obr ?>" class="btn btn-obr pl-4 pr-4" style="font-size: 1.25rem;">Ver Perfil</a>
 											</div>
 										</div>
 									</div>

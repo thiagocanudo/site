@@ -18,7 +18,7 @@
                 </form>
                 <div class="text-center copyright">© Copyright 2004 - <?php echo date('Y'); ?> Organizadas Brasil O Portal das Torcidas Organizadas. Direitos reservados</div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 mb-5">
                 <?php
                 include ("config.php3");
                 if (!$datei) $datei = dirname(__FILE__)."/$filename";
@@ -45,7 +45,7 @@
                 $arraypieces = explode(",",$all);
                 $useronline = count(array_flip(array_flip($arraypieces)));
                 // display how many people where activ within $timeout?>
-                <span class="d-block pt-4 pb-3 text-center users-online"><i class="icon-user"></i> Torcedores online: <?echo $useronline;?></span>
+                <span class="d-block pt-4 pb-3 mb-4 text-center users-online"><i class="icon-user"></i> Torcedores online: <?echo $useronline;?></span>
                 <?
                 // Delete
                 $dell = "";
