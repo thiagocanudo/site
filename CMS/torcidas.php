@@ -98,12 +98,12 @@
                <div class="col-md-9 col-lg-8">
                   <div class="principal col-sm-12 mt-4 mb-2 pt-4 pb-4">
                      <div class="box-resumo col-md-12 pt-5 pb-4">
-                        <div class="col-12 text-right">
+                        <div class="estado text-center sl-wrapper">
                            <?php $url_estado = friendlyUrlEstados($estado_nome);?>
                            <?php $url_obr = friendlyUrl($torcida_nome).$torcida_id.".html"; ?>
-                           <a title="<?php echo $estado_nome ?>" href="<?php echo strtolower($url_estado); ?>" class="right">
-                              <img src="<?php echo $estados_bandeira ?>" alt="<?php echo $estados_bandeira ?>" height="25" />
-                              <!-- <strong class="d-block"><?php echo $estado_sigla ?></strong> -->
+                           <a title="<?php echo $estado_nome ?>" href="<?php echo strtolower($url_estado); ?>">
+                           <img src="<?php echo $estados_bandeira ?>" alt="<?php echo $estados_bandeira ?>" height="25" />
+                           <span><?php echo $estado_sigla ?></span>
                            </a>
                         </div>
                         <div class="row">
@@ -160,9 +160,8 @@
                                     <div class="col-8 col-md-9 col-lg-10 text-truncate odd text-truncate"><a href="http://twitter.com/<?php echo $twitter ?>" title="Twitter da <?php echo $torcida_nome ?>" target="blank">http://twitter.com/<?php echo $twitter ?></a></div>
                                  </div>
                               </div>
-
-                              <div class="row mt-5">
-                                 <div class="col-12 historia">
+                              <div class="row">
+                                 <div class="col-12 mt-4">
                                     <hr>
                                     <h3>História da Torcida <span class="d-none"> da <?php echo $torcida_nome ?></span></h3>
                                     <div class="col-12 pt-4 pb-3 texto-historia">
@@ -186,65 +185,59 @@
                                     </div>
                                  </div>
                               </div>
-
-                              <div class="row mt-5">
-                                 <div class="col-12">
+                              <div class="row">
+                                 <div class="col-12 mt-4">
                                     <hr>
                                     <h3>Fotos da Torcida <span class="d-none"> da<?php echo $torcida_nome ?></span></h3>
-                                    <div class="col-12 fotos">
-                                       <div class="col-12 pt-4">
-                                          <?php
-                                             $resultado = mysql_query("SELECT fot.id as fotos_id, fot.url as fotos_url FROM fotos fot INNER JOIN torcidas tor ON tor.id = fot.torcida_id WHERE tor.id =" .$_GET['id']." LIMIT 50;");
-                                             $num_rows = mysql_num_rows($resultado);
-                                          ?>
-                                          <ul class="gallery owl-carousel p-0"><!-- ul -->
-                                             <?php while($num_rows = mysql_fetch_array($resultado)){ ?>
-                                             <li><!-- li -->
-                                                <?php $caminho = substr($num_rows['fotos_url'], 0, 10);
-                                                if($caminho == "https://lh"){
-                                                   $valores = array("s400", "s450", "s500", "s550", "s600", "s650");
-                                                   $thumb_pic = str_replace($valores, "s128" , $num_rows['fotos_url']); { ?>
-                                                      <a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>.jpg" title="Foto <?php echo $torcida_nome?>"><img alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_pic?>" /></a>
-                                                <?php }} ?>
-                                                <?php $caminho = substr($num_rows['fotos_url'], 0, 33);
-                                                   if($caminho == "http://www.organizadasbrasil.com/"){
-                                                      $thumb_obr = str_replace("obr", "t_obr", $num_rows['fotos_url']); { ?>
-                                                      <a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>" title="Foto <?php echo $torcida_nome?>"><img alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_obr?>" /></a>
-                                                <?php }} ?>
-                                             </li><!-- fim li -->
-                                          <?php } ?>
-                                          <?php if(mysql_num_rows($resultado) == 0){ ?>
-                                             <span>Em breve...</span>
-                                          <?php } ?>
-                                          </ul><!-- fim ul -->
+                                    <div class="col-12 p-4 fotos">
 
-                                       </div>
+                                       <?php
+                                          $resultado = mysql_query("SELECT fot.id as fotos_id, fot.url as fotos_url FROM fotos fot INNER JOIN torcidas tor ON tor.id = fot.torcida_id WHERE tor.id =" .$_GET['id']." LIMIT 50;");
+                                          $num_rows = mysql_num_rows($resultado);
+                                       ?>
+                                       <ul class="gallery owl-carousel p-0"><!-- ul -->
+                                          <?php while($num_rows = mysql_fetch_array($resultado)){ ?>
+                                          <li><!-- li -->
+                                             <?php $caminho = substr($num_rows['fotos_url'], 0, 10);
+                                             if($caminho == "https://lh"){
+                                                $valores = array("s400", "s450", "s500", "s550", "s600", "s650");
+                                                $thumb_pic = str_replace($valores, "s128" , $num_rows['fotos_url']); { ?>
+                                                   <a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>.jpg" title="Foto <?php echo $torcida_nome?>"><img width="128" height="96" alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_pic?>" /></a>
+                                             <?php }} ?>
+                                             <?php $caminho = substr($num_rows['fotos_url'], 0, 33);
+                                                if($caminho == "http://www.organizadasbrasil.com/"){
+                                                   $thumb_obr = str_replace("obr", "t_obr", $num_rows['fotos_url']); { ?>
+                                                   <a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>" title="Foto <?php echo $torcida_nome?>"><img width="128" height="96" alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_obr?>" /></a>
+                                             <?php }} ?>
+                                          </li><!-- fim li -->
+                                       <?php } ?>
+                                       <?php if(mysql_num_rows($resultado) == 0){ ?>
+                                          <span>Em breve...</span>
+                                       <?php } ?>
+                                       </ul><!-- fim ul -->
+
                                     </div>
                                  </div>
                               </div>
-
-                              <div class="row mt-5">
-                                 <div class="col-12">
+                              <div class="row">
+                                 <div class="col-12 ">
                                     <hr>
                                     <h3>Comentários <span class="d-none"> sobre a <?php echo $torcida_nome?></span></h3>
-                                    <div class="col-12 comentarios">
-                                       <div class="col-12 p-4 comentarios">
-                                          <div class="fb-comments" data-href="http://www.organizadasbrasil.com<?php echo $url_obr ?>" data-numposts="5" data-width="100%"></div>
-                                          <div id="fb-root"></div>
-                                          <div id="fb-root"></div>
-                                          <script>(function(d, s, id) {
-                                             var js, fjs = d.getElementsByTagName(s)[0];
-                                             if (d.getElementById(id)) return;
-                                             js = d.createElement(s); js.id = id;
-                                             js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=175380115987579";
-                                             fjs.parentNode.insertBefore(js, fjs);
-                                             }(document, 'script', 'facebook-jssdk'));
-                                          </script>
-                                       </div>
+                                    <div class="col-12 p-4 comentarios">
+                                       <div class="fb-comments" data-href="http://www.organizadasbrasil.com<?php echo $url_obr ?>" data-numposts="5" data-width="100%"></div>
+                                       <div id="fb-root"></div>
+                                       <div id="fb-root"></div>
+                                       <script>(function(d, s, id) {
+                                          var js, fjs = d.getElementsByTagName(s)[0];
+                                          if (d.getElementById(id)) return;
+                                          js = d.createElement(s); js.id = id;
+                                          js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1&appId=175380115987579";
+                                          fjs.parentNode.insertBefore(js, fjs);
+                                          }(document, 'script', 'facebook-jssdk'));
+                                       </script>
                                     </div>
                                  </div>
                               </div>
-
                            </div>
                         </div>
                      </div>
@@ -282,14 +275,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css" media="screen" />
 <style type="text/css">
-   ul.gallery li img{width:100px;height:auto;max-height:70px;-webkit-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);}
-   .owl-carousel .owl-nav button.owl-prev,
-   .owl-carousel .owl-nav button.owl-next {
-       font-size: 3.25rem;
-    }
-    .owl-carousel .owl-nav .owl-next{
-      float: right;
-    }
+   ul.gallery li img{-webkit-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);}
 </style>
 <script>
    $('.owl-carousel').owlCarousel({

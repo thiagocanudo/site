@@ -254,148 +254,39 @@ if($_GET){
 <hr class="fRight" />
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="infosBox fRight">
 	<h5>Fotos</h5>
-	<div class="infosBoxQuest clearfix">
+	<div class="clearfix">
 		<?php
 			$resultado = mysql_query("SELECT fot.id as fotos_id, fot.url as fotos_url FROM fotos fot INNER JOIN torcidas tor ON tor.id = fot.torcida_id WHERE tor.id =" .$_GET['id']." LIMIT 50;");
 			$num_rows = mysql_num_rows($resultado);
 		?>
-		<?php if($num_rows <= 5) { ?>
-		<ul class="swiper-wrapper p-0 gallery"">
-			<?php }else{?>
-			<ul class="swiper-wrapper p-0 gallery"">
-				<?php } ?>
-				<?php
-					while($num_rows = mysql_fetch_array($resultado)){
-				?>
-				<li class="swiper-slide">
-					<?php
-						$caminho = substr($num_rows['fotos_url'], 0, 10);
-						if($caminho == "https://lh"){
-							$valores = array("s400", "s450", "s500", "s550", "s600", "s650");
-					$thumb_pic = str_replace($valores, "s128" , $num_rows['fotos_url']); ?>
-					
-					<?php { ?>
-					<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>.jpg" class="group1" title=""><img alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_pic?>" /></a>
-					<?php } ?>
-					<?php } ?>
-					<?php $caminho = substr($num_rows['fotos_url'], 0, 33);
-						if($caminho == "http://www.organizadasbrasil.com/"){
-					$thumb_obr = str_replace("obr", "t_obr", $num_rows['fotos_url'])?>
-					<?php { ?>
-					<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>" class="group1" title=""><img alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_obr?>" /></a>
-					<?php } ?>
-					<?php } ?>
-					<?php } ?>
-				</li>
-				<?php if(mysql_num_rows($resultado) == 0){ ?>
-			<pre>Em breve...</pre>
-			<?php } ?>
-		</ul>
+		<ul class="gallery owl-carousel p-0"><!-- ul -->
+			<?php while($num_rows = mysql_fetch_array($resultado)){ ?>
+			<li><!-- li -->
+				<?php $caminho = substr($num_rows['fotos_url'], 0, 10);
+				if($caminho == "https://lh"){
+					$valores = array("s400", "s450", "s500", "s550", "s600", "s650");
+					$thumb_pic = str_replace($valores, "s128" , $num_rows['fotos_url']); { ?>
+						<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>.jpg" class="group1" title=""><img width="128" height="96" alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_pic?>" /></a>
+				<?php }} ?>
+
+				<?php $caminho = substr($num_rows['fotos_url'], 0, 33);
+					if($caminho == "http://www.organizadasbrasil.com/"){
+						$thumb_obr = str_replace("obr", "t_obr", $num_rows['fotos_url']); { ?>
+						<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>" class="group1" title=""><img width="128" height="96" alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_obr?>" /></a>
+				<?php }} ?>
+			</li><!-- fim li -->
+		<?php } ?>
+		<?php if(mysql_num_rows($resultado) == 0){ ?>
+			<span>Em breve...</span>
+		<?php } ?>
+		</ul><!-- fim ul -->
+
 	</div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="infosBox fRight">
-	<h5>Fotos</h5>
-	<div class="infosBoxQuest clearfix">
-		<?php
-					$resultado = mysql_query("SELECT fot.id as fotos_id, fot.url as fotos_url FROM fotos fot INNER JOIN torcidas tor ON tor.id = fot.torcida_id WHERE tor.id =" .$_GET['id']." LIMIT 50;");
-						$num_rows = mysql_num_rows($resultado);
-		?>
-		<?php if($num_rows <= 5) { ?>
-		<ul id="default" class="clearfix">
-			<?php }else{?>
-			<ul id="mycarousel" class="jcarousel-skin-tango">
-				<?php } ?>
-				<?php
-					while($num_rows = mysql_fetch_array($resultado)){
-				?>
-				<li>
-					<?php
-						$caminho = substr($num_rows['fotos_url'], 0, 10);
-						if($caminho == "https://lh"){
-							$valores = array("s400", "s450", "s500", "s550", "s600", "s650");
-					$thumb_pic = str_replace($valores, "s128" , $num_rows['fotos_url']); ?>
-					
-					<?php { ?>
-					<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>.jpg" class="group1" title=""><img alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_pic?>" /></a>
-					<?php } ?>
-					<?php } ?>
-
-					<?php $caminho = substr($num_rows['fotos_url'], 0, 33);
-						if($caminho == "http://www.organizadasbrasil.com/"){
-						$thumb_obr = str_replace("obr", "t_obr", $num_rows['fotos_url'])?>
-					<?php { ?>
-						<a title="<?php echo $torcida_nome; ?>" href="<?php echo $num_rows['fotos_url'];?>" class="group1" title=""><img alt="<?php echo $torcida_nome?>" src="<?php echo $thumb_obr?>" /></a>
-					<?php } ?>
-					<?php } ?>
-					<?php } ?>
-				</li>
-				<?php if(mysql_num_rows($resultado) == 0){ ?>
-			<pre>Em breve...</pre>
-			<?php } ?>
-		</ul>
-	</div>
-</div>
+<hr class="fRight" />
 
 <div class="infosBox fRight">
 	<h5>Comentários sobre da <?php echo $torcida_nome?></h5>
@@ -421,25 +312,37 @@ if($_GET){
 </div>
 </div>
 <?php include("./includes/rodape.php"); ?>
-<link rel="stylesheet" href="/css/colorbox.css" />
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js"></script>
-<script type="text/javascript" src="/js/funcoes2.js"></script>
-<script src="/js/jquery.jcarousel.min.js" type="text/javascript"></script>
-<script src="/js/jquery.colorbox.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="http://www.organizadasbrasil.com/cdn/simple-lightbox.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" type="text/javascript"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css" media="screen" />
+<style type="text/css">
+	ul.gallery li img{-webkit-box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5); box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);}
+</style>
 <script>
-	$(document).ready(function(){
-		//Examples of how to assign the ColorBox event to elements
-		$(".group1").colorbox({rel:'group1'});
-		$(".group2").colorbox({rel:'group2', transition:"fade"});
-		$(".group3").colorbox({rel:'group3', transition:"none", width:"75%", height:"75%"});
-		$(".group4").colorbox({rel:'group4', slideshow:true});
-		
-		
-		//Example of preserving a JavaScript event for inline calls.
-		$("#click").click(function(){
-			$('#click').css({"background-color":"#f00", "color":"#fff", "cursor":"inherit"}).text("Open this window again and this message will still be here.");
-			return false;
-		});
+	$('.owl-carousel').owlCarousel({
+		dots: true,
+		nav: true,
+	    loop: true,
+	    margin:10,
+	    responsiveClass:true,
+	    responsive:{
+	        575:{
+	            items:2,
+	            nav:true
+	        },
+	        767:{
+	            items:3,
+	            nav:false
+	        },
+	        992:{
+	            items:4,
+	            nav:true,
+	            loop:false
+	        }
+	    }
 	});
 </script>
 </body>
